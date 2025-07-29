@@ -18,4 +18,9 @@ function getComputerChoice() {
     } 
 }
 
+function getHumanChoice() {
+    // Prompt the user for their choice
+    // Return the choice
+}
+
 console.log(getComputerChoice());
