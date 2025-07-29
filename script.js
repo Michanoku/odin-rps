@@ -13,21 +13,27 @@ function getComputerChoice() {
     const result = randomNumber * Math.floor(randomNumber * 100) + 1;
     // If the number is below or equal to 33, choose rock
     if (result <= 33) {
-        return "Rock"
+        return "rock"
     // If the number is below or equal to 66, choose paper
     } else if (result <= 66) {
-        return "Paper"
+        return "paper"
     // For any other result, use scissors
     } else {
-        return "Scissors"
+        return "scissors"
     } 
 }
 
+// Write a function that gets and returns the player choice
 function getHumanChoice() {
     // Prompt the user for their choice
     const humanChoice = prompt("Rock, Paper, or Scissors?")
     // Return the choice
     return humanChoice;
+}
+
+// Write a function to play a round
+function playRound(computerChoice, humanChoice) {
+
 }
 
 console.log(getComputerChoice());
