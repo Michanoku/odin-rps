@@ -1,5 +1,10 @@
 // JavaScript File for Odin Rock Paper Scissors
 
+// Initialize computer score
+let computerScore = 0;
+// Initialize human score
+let humanScore = 0;
+
 // Write a function that returns the computer choice
 function getComputerChoice() {
     // Create a random number between 0 and 1
