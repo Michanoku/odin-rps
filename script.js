@@ -8,13 +8,13 @@ function getComputerChoice() {
     const result = randomNumber * Math.floor(randomNumber * 100) + 1;
     // If the number is below or equal to 33, choose rock
     if (result <= 33) {
-        return "Rock!"
+        return "Rock"
     // If the number is below or equal to 66, choose paper
     } else if (result <= 66) {
-        return "Paper!"
+        return "Paper"
     // For any other result, use scissors
     } else {
-        return "Scissors!"
+        return "Scissors"
     } 
 }
 
