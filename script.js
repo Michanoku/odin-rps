@@ -26,14 +26,32 @@ function getComputerChoice() {
 // Write a function that gets and returns the player choice
 function getHumanChoice() {
     // Prompt the user for their choice
-    const humanChoice = prompt("Rock, Paper, or Scissors?")
+    const humanChoice = prompt("Rock, paper, or scissors?")
     // Return the choice
-    return humanChoice;
+    return humanChoice.toLowerCase();
 }
 
 // Write a function to play a round
 function playRound(computerChoice, humanChoice) {
+    // Initialize a result variable
+    let result;
+    // If the player choice and computer choice is equal
+        // Save draw text to result
+        // No one gets points
+    // If there is no draw
+        // If the player plays rock, and the computer scissors, or the player plays paper and the computer rock, or the player plays scissors and the computer paper:
+            // Save player wins text to result
+            // Give the player points
+        // Else
+            // Save computer wins text to result
+            // Give the computer points
 
+    // If the player won:
+        // Capitalize the first letter of the players choice
+        // Return a concatenated string of the result and the reason
+    // Else
+        // Capitalize the first letter of the computers choice
+        // Return a concatenated string of the result and the reason
 }
 
 console.log(getComputerChoice());
