@@ -36,7 +36,7 @@ function playRound(computerChoice, humanChoice) {
     
     // Initialize a result and explanation variable
     let result;
-    let explanation;
+    let explanation = "";
 
     // If the player choice and computer choice is equal
     if (computerChoice === humanChoice) {
