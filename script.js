@@ -19,9 +19,9 @@ function getComputerChoice() {
 }
 
 // Write a function that gets and returns the player choice
-function getHumanChoice() {
+function getHumanChoice(round) {
     // Prompt the user for their choice
-    const humanChoice = prompt('Rock, paper, or scissors?')
+    const humanChoice = prompt(`Round ${round}: Rock, paper, or scissors?`)
     // Return the choice
     return humanChoice.toLowerCase();
 }
@@ -89,7 +89,7 @@ function playGame() {
         // Get the computer choice
         const computerChoice = getComputerChoice();
         // Get the human choice
-        const humanChoice = getHumanChoice();
+        const humanChoice = getHumanChoice(i);
         playRound(computerChoice, humanChoice);
     }
 }
