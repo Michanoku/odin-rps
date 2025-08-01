@@ -33,8 +33,11 @@ function getHumanChoice() {
 
 // Write a function to play a round
 function playRound(computerChoice, humanChoice) {
-    // Initialize a result variable
+    
+    // Initialize a result and explanation variable
     let result;
+    let explanation;
+
     // If the player choice and computer choice is equal
     if (computerChoice === humanChoice) {
         // Save draw text to result
@@ -55,15 +58,32 @@ function playRound(computerChoice, humanChoice) {
             // Give the computer points
             computerScore++;
         }
-
     }
-    // If the player won:
+    // Helper function for explanation handling
+    function createExplanation(winningChoice, losingChoice) {
         // Capitalize the first letter of the players choice
-        // Return a concatenated string of the result and the reason
-    // Else
-        // Capitalize the first letter of the computers choice
-        // Return a concatenated string of the result and the reason
+        const first = winningChoice.charAt(0).toUpperCase();
+        // Slice the rest of the string off
+        const rest = winningChoice.slice(1, winningChoice.length);
+        // Put the string back together
+        const winningMove = first.concat(rest);
+        // Return the string
+        return `${winningMove} beats ${losingChoice}.`
+    }
+    // If the player won
+    if (result === "You win!") {
+        // User the helper function to get the winning explanation
+        explanation = createExplanation(humanChoice, computerChoice);
+    // If the computer won
+    } else {
+        // User the helper function to get the losing explanation
+        explanation = createExplanation(computerChoice, humanChoice);
+    }
+    // Show the final result
+    console.log(`${result} ${explanation}`)
 }
 
-console.log(getComputerChoice());
-console.log(getHumanChoice());
+const computerChoice = getComputerChoice();
+const humanChoice = getHumanChoice();
+
+playRound(computerChoice, humanChoice);
