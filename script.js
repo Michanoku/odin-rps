@@ -82,10 +82,18 @@ function playGame() {
     let computerScore = 0;
     // Initialize human score
     let humanScore = 0;
-    
+    // Initialize number of rounds
+    const rounds = 5;
+    // Make a loop for the number of rounds
+    for (i = 1; i == rounds; i++) {
+        // Get the computer choice
+        const computerChoice = getComputerChoice();
+        // Get the human choice
+        const humanChoice = getHumanChoice();
+        playRound(computerChoice, humanChoice);
+    }
 }
 
-const computerChoice = getComputerChoice();
-const humanChoice = getHumanChoice();
 
-playRound(computerChoice, humanChoice);
+
+
