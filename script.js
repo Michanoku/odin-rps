@@ -1,10 +1,5 @@
 // JavaScript File for Odin Rock Paper Scissors
 
-// Initialize computer score
-let computerScore = 0;
-// Initialize human score
-let humanScore = 0;
-
 // Write a function that returns the computer choice
 function getComputerChoice() {
     // Create a random number between 0 and 1
@@ -31,56 +26,63 @@ function getHumanChoice() {
     return humanChoice.toLowerCase();
 }
 
-// Write a function to play a round
-function playRound(computerChoice, humanChoice) {
-    
-    // Initialize a result and explanation variable
-    let result;
-    let explanation = "";
+function playGame() {
+    // Write a function to play a round
+    function playRound(computerChoice, humanChoice) {
+        
+        // Initialize a result and explanation variable
+        let result;
+        let explanation = "";
 
-    // If the player choice and computer choice is equal
-    if (computerChoice === humanChoice) {
-        // Save draw text to result
-        result = 'Draw!';
-        // No one gets points
-    // Else, no draw
-    } else {
-        // If the player plays rock, and the computer scissors, or the player plays paper and the computer rock, or the player plays scissors and the computer paper:
-        if ((humanChoice === 'rock' && computerChoice === 'scissors') || (humanChoice === 'paper' && computerChoice === 'rock') || (humanChoice === 'scissors' && computerChoice === 'paper')) {
-            // Save player wins text to result
-            result = 'You win!';
-            // Give the player points
-            humanScore++;
-        // Else
+        // If the player choice and computer choice is equal
+        if (computerChoice === humanChoice) {
+            // Save draw text to result
+            result = 'Draw!';
+            // No one gets points
+        // Else, no draw
         } else {
-            // Save computer wins text to result
-            result = 'You lose!';
-            // Give the computer points
-            computerScore++;
+            // If the player plays rock, and the computer scissors, or the player plays paper and the computer rock, or the player plays scissors and the computer paper:
+            if ((humanChoice === 'rock' && computerChoice === 'scissors') || (humanChoice === 'paper' && computerChoice === 'rock') || (humanChoice === 'scissors' && computerChoice === 'paper')) {
+                // Save player wins text to result
+                result = 'You win!';
+                // Give the player points
+                humanScore++;
+            // Else
+            } else {
+                // Save computer wins text to result
+                result = 'You lose!';
+                // Give the computer points
+                computerScore++;
+            }
         }
+        // Helper function for explanation handling
+        function createExplanation(winningChoice, losingChoice) {
+            // Capitalize the first letter of the players choice
+            const first = winningChoice.charAt(0).toUpperCase();
+            // Slice the rest of the string off
+            const rest = winningChoice.slice(1, winningChoice.length);
+            // Put the string back together
+            const winningMove = first.concat(rest);
+            // Return the string
+            return `${winningMove} beats ${losingChoice}.`
+        }
+        // If the player won
+        if (result === 'You win!') {
+            // User the helper function to get the winning explanation
+            explanation = createExplanation(humanChoice, computerChoice);
+        // If the computer won
+        } else if (result === 'You lose!') {
+            // User the helper function to get the losing explanation
+            explanation = createExplanation(computerChoice, humanChoice);
+        }
+        // Show the final result
+        console.log(`${result} ${explanation}`)
     }
-    // Helper function for explanation handling
-    function createExplanation(winningChoice, losingChoice) {
-        // Capitalize the first letter of the players choice
-        const first = winningChoice.charAt(0).toUpperCase();
-        // Slice the rest of the string off
-        const rest = winningChoice.slice(1, winningChoice.length);
-        // Put the string back together
-        const winningMove = first.concat(rest);
-        // Return the string
-        return `${winningMove} beats ${losingChoice}.`
-    }
-    // If the player won
-    if (result === 'You win!') {
-        // User the helper function to get the winning explanation
-        explanation = createExplanation(humanChoice, computerChoice);
-    // If the computer won
-    } else if (result === 'You lose!') {
-        // User the helper function to get the losing explanation
-        explanation = createExplanation(computerChoice, humanChoice);
-    }
-    // Show the final result
-    console.log(`${result} ${explanation}`)
+    // Initialize computer score
+    let computerScore = 0;
+    // Initialize human score
+    let humanScore = 0;
+    
 }
 
 const computerChoice = getComputerChoice();
