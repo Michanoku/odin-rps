@@ -1,17 +1,41 @@
+body {
+    background-color: #61D1FD;
+}
+
 #button-container { 
     display: flex;
+    margin: auto;
+    height:60vh;
     flex-direction: row;
-    justify-content: space-around;
-    align-items: center;
+    gap: 25px;
+    justify-content: center;
+}
+
+.text {
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    text-align: center;
+    margin-top: 50px;
+    color: #48304D;
+}
+
+.title { 
+    font-size: 50px;
+}
+
+.subtitle {
+    font-size: 30px
 }
 
 .rps-button {
-    flex: 1;
+    flex-shrink: 1;
+    font-size: 50px;
     height: 100px;
     width: 100px;
-    border: 2px solid lightpink;
-    background-color: skyblue;
-    color: lightpink;
+    align-self: center;
+    border: 5px solid #F08CAE;
+    border-radius: 25px;
+    background-color: #9AE2FE;
+    color: #F08CAE;
     transition: 0.1s;
 }
 
