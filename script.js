@@ -5,6 +5,10 @@ let computerScore = 0;
 // Initialize human score
 let humanScore = 0;
 
+// Set up nodes to use for score display and announce message
+const humanScoreDisplay = document.querySelector('#human-score');
+const computerScoreDisplay = document.querySelector('#computer-score');
+const announce = document.querySelector('#announce'); 
 
 // Write a function that returns the computer choice
 function getComputerChoice() {
@@ -62,6 +66,10 @@ function playRound(humanChoice) {
             computerScore++;
         }
     }
+    // Set the score display for human and computer
+    humanScoreDisplay.textContent = humanScore;
+    computerScoreDisplay.textContent = computerScore;
+
     // Helper function for explanation handling
     function createExplanation(winningChoice, losingChoice) {
         // Capitalize the first letter of the players choice
@@ -83,7 +91,13 @@ function playRound(humanChoice) {
         explanation = createExplanation(computerChoice, humanChoice);
     }
     // Show the final result
-    console.log(`${result} ${explanation}`)
+    if (humanScore === 5) {
+        announce.textContent = `You won the game ${humanScore} to ${computerScore}!`;
+    } else if (computerScore === 5) {
+        announce.textContent = `You lost the game ${humanScore} to ${computerScore}.`;
+    } else {
+        announce.textContent = `${result} ${explanation}`;
+    }
 }
 
 // Query Selector for buttons 
@@ -99,14 +113,3 @@ document.querySelector('#button-container').addEventListener('click', (event) =>
 
 });
 
-
-function playGame() {
-    // Write a function to play a round
-    if (humanScore > computerScore) {
-        console.log(`You won the game ${humanScore} to ${computerScore}!`);
-    } else {
-        console.log(`You lost the game ${humanScore} to ${computerScore}.`)
-    }
-}
-
-playGame();

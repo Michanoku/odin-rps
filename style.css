@@ -14,12 +14,13 @@ body {
 .text {
     font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     text-align: center;
-    margin-top: 50px;
     color: #48304D;
 }
 
 .title { 
     font-size: 50px;
+    margin-top: 50px;
+    margin-bottom: 20px;
 }
 
 .subtitle {
