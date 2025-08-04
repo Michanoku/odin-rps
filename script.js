@@ -4,6 +4,7 @@
 let computerScore = 0;
 // Initialize human score
 let humanScore = 0;
+let game = "running";
 
 // Set up nodes to use for score display and announce message
 const humanScoreDisplay = document.querySelector('#human-score');
@@ -38,6 +39,11 @@ function getHumanChoice() {
 
 function playRound(humanChoice) {
     
+    if (game === "over") {
+        humanScore = 0;
+        computerScore = 0;
+        game = "running";
+    }
     // Get the computer choice
     const computerChoice = getComputerChoice();
   
@@ -92,9 +98,11 @@ function playRound(humanChoice) {
     }
     // Show the final result
     if (humanScore === 5) {
-        announce.textContent = `You won the game ${humanScore} to ${computerScore}!`;
+        game = "over";
+        announce.textContent = `You won the game ${humanScore} to ${computerScore}! Click any move to play again!`;
     } else if (computerScore === 5) {
-        announce.textContent = `You lost the game ${humanScore} to ${computerScore}.`;
+        game = "over";
+        announce.textContent = `You lost the game ${humanScore} to ${computerScore}. Click any move to play again!`;
     } else {
         announce.textContent = `${result} ${explanation}`;
     }
